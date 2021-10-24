@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import app.components.ActivityManager;
+import app.components.LocationManager;
 import app.entity.Activity;
+import app.entity.Location;
 
 
 @Controller
@@ -19,6 +21,7 @@ public class DatingAppController {
 
 	@Autowired
 	ActivityManager activityManager;
+	LocationManager locationManager;
 	
 	@POST
 	@Path("/activity/create")
@@ -36,6 +39,13 @@ public class DatingAppController {
 		return activityManager.editActivity(activity);
 	}
 	
-	
+	@POST
+	@Path("/location/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Location createLocation(Location location)
+	{
+		return locationManager.saveLocation(location);
+	}
 	
 }
