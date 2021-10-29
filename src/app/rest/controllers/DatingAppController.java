@@ -17,6 +17,7 @@ import app.components.ActivityManager;
 import app.components.LocationManager;
 import app.entity.Activity;
 import app.entity.Location;
+import app.repository.InterestRepository;
 
 
 @Controller
@@ -26,6 +27,7 @@ public class DatingAppController {
 	@Autowired
 	ActivityManager activityManager;
 	LocationManager locationManager;
+	private InterestRepository interestRepo;
 	
 	@POST
 	@Path("/activity/create")
@@ -56,8 +58,9 @@ public class DatingAppController {
 //	@GET
 //	@Path("/findmatch")
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public List<xxxxx> getList(@QueryParam("interest") String type){
-//		return interestrepo.findAllByType(type);
+//	public List<xxxxx> getList(@QueryParam("interest") String agePreference){
+//		return interestRepo.findAllByAgePreference(agePreference);
+//		need to return a list that matches all the findAllBy interest methods
 //	}
 	
 //	VIEW MATCH PROFILE
