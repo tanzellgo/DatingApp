@@ -1,9 +1,13 @@
 package app.rest.controllers;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import app.components.ActivityManager;
 import app.components.LocationManager;
 import app.entity.Activity;
 import app.entity.Location;
+import app.entity.StrayAnimal;
 
 
 @Controller
@@ -47,5 +52,22 @@ public class DatingAppController {
 	{
 		return locationManager.saveLocation(location);
 	}
+
+//	FIND MATCH (to fix)
+//	@GET
+//	@Path("/findmatch")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public List<xxxxx> getList(@QueryParam("interest") String type){
+//		return interestrepo.findAllByType(type);
+//	}
+	
+//	VIEW MATCH PROFILE
+//	@GET
+//	@Path("/viewmatch")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public List<xxxxx> getList(@QueryParam("interest") String type){
+//		return personalinforepo.findAllByType(type);
+//	
+//	}
 	
 }
