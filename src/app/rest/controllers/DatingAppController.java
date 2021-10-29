@@ -17,7 +17,6 @@ import app.components.ActivityManager;
 import app.components.LocationManager;
 import app.entity.Activity;
 import app.entity.Location;
-import app.entity.StrayAnimal;
 
 
 @Controller
