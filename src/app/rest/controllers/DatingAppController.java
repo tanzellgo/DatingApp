@@ -52,6 +52,14 @@ public class DatingAppController {
 	public Location createLocation(Location location)
 	{
 		return locationManager.saveLocation(location);
+		//	ERROR MESSAGE - HAVEN'T TESTED YET --> will change the method into a string if this will be used
+//		Location loc = locationManager.saveLocation(location);
+//		
+//		if (loc != null) {
+//			return "Saved new location "; //+ loc.getId()
+//		} else {
+//			return "Location cannot be created.";
+//		}
 	}
 
 //	FIND MATCH (to fix)
