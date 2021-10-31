@@ -23,9 +23,11 @@ public class Activity {
 	@Column
     private String activityName;
 	
+	@NotNull(message = "Activity date is missing")
 	@Column
     private String date;
 	
+	@NotNull(message = "Activity time is missing")
 	@Column
     private String time;
 	
@@ -35,9 +37,11 @@ public class Activity {
 	@ManyToOne (fetch = FetchType.EAGER)  
 	private PersonalInformation inviterPersonalInformation;  
 	
+	@NotNull(message = "Invitee is missing")
 	@ManyToOne (fetch = FetchType.EAGER)  
 	private PersonalInformation inviteePersonalInformation; 
 
+	@NotNull(message = "Activity location is missing")
 	@ManyToOne (fetch = FetchType.EAGER)  
 	private Location location;
 
