@@ -30,8 +30,6 @@ public class PersonalInformation {
 	@Column
 	@NotNull(message = "Sex is missing")
 	private String sex;
-	
-	//hi
 
 	public Long getPersonalInfoID() {
 		return personalInfoID;
