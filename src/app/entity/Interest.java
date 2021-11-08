@@ -19,7 +19,7 @@ public class Interest {
 	
 	@Column
 	private String agePreference;
-//	parang what we can do here siguro is have have user input XX-YY where XX is starting range and YY is ending range, then splice through the - to get the values.
+//	parang what we can do here is have have user input XX-YY where XX is starting range and YY is ending range, then splice through the - to get the values.
 	
 	@Column
 	private String sexPreference;
@@ -109,10 +109,5 @@ public class Interest {
 				+ sexPreference + ", movieGenre=" + movieGenre + ", songGenre=" + songGenre + ", faveFood=" + faveFood
 				+ ", faveHobby=" + faveHobby + ", personalInformation=" + personalInformation + "]";
 	}
-	
-//	JOSH TODO:
-//	getters and setters
-//	toString
-
 	
 }
