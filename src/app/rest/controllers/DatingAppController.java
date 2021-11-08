@@ -18,7 +18,9 @@ import app.components.LocationManager;
 import app.entity.Activity;
 import app.entity.Interest;
 import app.entity.Location;
+import app.entity.PersonalInformation;
 import app.repository.InterestRepository;
+import app.repository.PersonalInformationRepository;
 
 
 @Controller
@@ -29,6 +31,7 @@ public class DatingAppController {
 	ActivityManager activityManager;
 	LocationManager locationManager;
 	private InterestRepository interestRepo;
+	private PersonalInformationRepository personalInfoRepo;
 	
 	@POST
 	@Path("/activity/create")
@@ -112,8 +115,8 @@ public class DatingAppController {
 	@GET
 	@Path("/viewmatch")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getList(@QueryParam("personalInformation") String personalInformation){
-		return interestRepo.findAllByPersonalInformation(personalInformation);
+	public List<PersonalInformation> getList(@QueryParam("personalInformation") String personalInfoID){
+		return personalInfoRepo.findAllByID(personalInfoID);
 		// get personal information
 		// then pass to search in personal info repo
 	}
