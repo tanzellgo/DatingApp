@@ -19,6 +19,7 @@ import app.entity.Activity;
 import app.entity.Interest;
 import app.entity.Location;
 import app.entity.PersonalInformation;
+import app.repository.ActivityRepository;
 import app.repository.InterestRepository;
 import app.repository.PersonalInformationRepository;
 
@@ -30,6 +31,7 @@ public class DatingAppController {
 	@Autowired
 	ActivityManager activityManager;
 	LocationManager locationManager;
+	private ActivityRepository activityRepo;
 	private InterestRepository interestRepo;
 	private PersonalInformationRepository personalInfoRepo;
 	
@@ -119,6 +121,23 @@ public class DatingAppController {
 		return personalInfoRepo.findAllByID(personalInfoID);
 		// get personal information
 		// then pass to search in personal info repo
+	}
+	
+//	VIEW SENT INVITES
+	@GET
+	@Path("/viewsent")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Activity> getSent(@QueryParam("personalInformation") PersonalInformation inviterPersonalInformation){
+		return activityRepo.findAllByInviter(inviterPersonalInformation);
+	}
+	
+//	VIEW RECEIVED INVITES
+	
+	@GET
+	@Path("/viewreceived")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Activity> getReiceved(@QueryParam("personalInformation") PersonalInformation inviteePersonalInformation){
+		return activityRepo.findAllByInvitee(inviteePersonalInformation);
 	}
 	
 }
