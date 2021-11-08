@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import app.components.ActivityManager;
 import app.components.LocationManager;
 import app.entity.Activity;
+import app.entity.Interest;
 import app.entity.Location;
 import app.repository.InterestRepository;
 
@@ -63,21 +64,58 @@ public class DatingAppController {
 	}
 
 //	FIND MATCH (to fix)
-//	@GET
-//	@Path("/findmatch")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<xxxxx> getList(@QueryParam("interest") String agePreference){
-//		return interestRepo.findAllByAgePreference(agePreference);
-//		need to return a list that matches all the findAllBy interest methods
-//	}
+//	need to return a list that matches all the findAllBy interest methods
+	
+	@GET
+	@Path("/findmatch/age")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListAge(@QueryParam("agePreference") String agePreference){
+		return interestRepo.findAllByAgePreference(agePreference);
+	}
+	
+	@GET
+	@Path("/findmatch/sex")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListSex(@QueryParam("sexPreference") String sexPreference){
+		return interestRepo.findAllBySexPreference(sexPreference);
+	}
+	
+	@GET
+	@Path("/findmatch/movie")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListMovie(@QueryParam("movieGenre") String movieGenre){
+		return interestRepo.findAllByMovieGenre(movieGenre);
+	}
+	
+	@GET
+	@Path("/findmatch/song")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListSong(@QueryParam("songGenre") String songGenre){
+		return interestRepo.findAllBySongGenre(songGenre);
+	}
+	
+	@GET
+	@Path("/findmatch/food")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListFood(@QueryParam("faveFood") String faveFood){
+		return interestRepo.findAllByFaveFood(faveFood);
+	}
+	
+	@GET
+	@Path("/findmatch/hobby")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getListHobby(@QueryParam("faveHobby") String faveHobby){
+		return interestRepo.findAllByFaveHobby(faveHobby);
+	}
 	
 //	VIEW MATCH PROFILE
-//	@GET
-//	@Path("/viewmatch")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<xxxxx> getList(@QueryParam("interest") String type){
-//		return personalinforepo.findAllByType(type);
-//	
-//	}
+	@GET
+	@Path("/viewmatch")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Interest> getList(@QueryParam("personalInformation") String personalInformation){
+		return interestRepo.findAllByPersonalInformation(personalInformation);
+		// get personal information
+		// then pass to search in personal info repo
+	}
 	
 }

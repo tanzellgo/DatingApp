@@ -16,5 +16,6 @@ public interface InterestRepository extends JpaRepository<Interest, Long> {
 	public List<Interest> findAllBySongGenre(String songGenre);
 	public List<Interest> findAllByFaveFood(String faveFood);
 	public List<Interest> findAllByFaveHobby(String faveHobby);
+	public List<Interest> findAllByPersonalInformation(String personalInformation);
 	
 }
