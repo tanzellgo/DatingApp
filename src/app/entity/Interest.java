@@ -38,9 +38,81 @@ public class Interest {
 	
 	@OneToOne  
 	private PersonalInformation personalInformation;
+
+	public long getInterestID() {
+		return interestID;
+	}
+
+	public void setInterestID(long interestID) {
+		this.interestID = interestID;
+	}
+
+	public String getAgePreference() {
+		return agePreference;
+	}
+
+	public void setAgePreference(String agePreference) {
+		this.agePreference = agePreference;
+	}
+
+	public String getSexPreference() {
+		return sexPreference;
+	}
+
+	public void setSexPreference(String sexPreference) {
+		this.sexPreference = sexPreference;
+	}
+
+	public String getMovieGenre() {
+		return movieGenre;
+	}
+
+	public void setMovieGenre(String movieGenre) {
+		this.movieGenre = movieGenre;
+	}
+
+	public String getSongGenre() {
+		return songGenre;
+	}
+
+	public void setSongGenre(String songGenre) {
+		this.songGenre = songGenre;
+	}
+
+	public String getFaveFood() {
+		return faveFood;
+	}
+
+	public void setFaveFood(String faveFood) {
+		this.faveFood = faveFood;
+	}
+
+	public String getFaveHobby() {
+		return faveHobby;
+	}
+
+	public void setFaveHobby(String faveHobby) {
+		this.faveHobby = faveHobby;
+	}
+
+	public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+
+	@Override
+	public String toString() {
+		return "Interest [interestID=" + interestID + ", agePreference=" + agePreference + ", sexPreference="
+				+ sexPreference + ", movieGenre=" + movieGenre + ", songGenre=" + songGenre + ", faveFood=" + faveFood
+				+ ", faveHobby=" + faveHobby + ", personalInformation=" + personalInformation + "]";
+	}
 	
 //	JOSH TODO:
 //	getters and setters
 //	toString
 
+	
 }
