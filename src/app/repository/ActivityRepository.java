@@ -12,8 +12,8 @@ import app.entity.PersonalInformation;
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
 	
-	public List<Activity> findAllByInviter(PersonalInformation inviterPersonalInformation);
-	public List<Activity> findAllByInvitee(PersonalInformation inviteePersonalInformation);
+	public List<Activity> findAllByInviterPersonalInformation(PersonalInformation inviterPersonalInformation);
+	public List<Activity> findAllByInviteePersonalInformation(PersonalInformation inviteePersonalInformation);
 	
 
 

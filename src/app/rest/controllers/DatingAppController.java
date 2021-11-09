@@ -118,7 +118,7 @@ public class DatingAppController {
 	@Path("/viewmatch")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PersonalInformation> getList(@QueryParam("personalInformation") String personalInfoID){
-		return personalInfoRepo.findAllByID(personalInfoID);
+		return personalInfoRepo.findAllByPersonalInfoID(personalInfoID);
 		// get personal information
 		// then pass to search in personal info repo
 	}
@@ -128,7 +128,7 @@ public class DatingAppController {
 	@Path("/viewsent")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Activity> getSent(@QueryParam("personalInformation") PersonalInformation inviterPersonalInformation){
-		return activityRepo.findAllByInviter(inviterPersonalInformation);
+		return activityRepo.findAllByInviterPersonalInformation(inviterPersonalInformation);
 	}
 	
 //	VIEW RECEIVED INVITES
@@ -137,7 +137,7 @@ public class DatingAppController {
 	@Path("/viewreceived")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Activity> getReiceved(@QueryParam("personalInformation") PersonalInformation inviteePersonalInformation){
-		return activityRepo.findAllByInvitee(inviteePersonalInformation);
+		return activityRepo.findAllByInviteePersonalInformation(inviteePersonalInformation);
 	}
 	
 }

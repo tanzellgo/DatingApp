@@ -10,5 +10,5 @@ import app.entity.PersonalInformation;
 @Repository
 public interface PersonalInformationRepository extends JpaRepository<PersonalInformation, Long> {
 
-	public List<PersonalInformation> findAllByID(String personalInfoID);
+	public List<PersonalInformation> findAllByPersonalInfoID(String personalInfoID);
 }
