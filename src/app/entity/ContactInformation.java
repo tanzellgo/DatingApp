@@ -88,7 +88,21 @@ public class ContactInformation {
 	public String toString() {
 		return "ContactInformation [id=" + id + ", phoneNumber=" + phoneNumber + ", email=" + email + ", facebookLink="
 				+ facebookLink + ", image=" + image + ", personalInformation=" + personalInformation + "]";
-	}  
+	}
+	
+	public ContactInformation () {};
+
+	public ContactInformation(@NotNull(message = "Phone number is missing") String phoneNumber,
+			@Email(message = "Email should be valid") String email, String facebookLink, String image,
+			PersonalInformation personalInformation) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.facebookLink = facebookLink;
+		this.image = image;
+		this.personalInformation = personalInformation;
+	}
+
 	
 	
 }
