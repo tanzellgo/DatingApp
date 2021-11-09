@@ -51,7 +51,16 @@ public class Location {
 	public void setAddress(String address) {
 		Address = address;
 	}
+
+	public Location () {};
 	
+	public Location(@NotNull(message = "Please recheck all the fields inputted.") String locationName,
+			@NotNull(message = "Please recheck all the fields inputted.") String address) {
+		super();
+		LocationName = locationName;
+		Address = address;
+	}
+
 
 	
 }
