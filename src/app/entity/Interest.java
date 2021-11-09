@@ -110,4 +110,20 @@ public class Interest {
 				+ ", faveHobby=" + faveHobby + ", personalInformation=" + personalInformation + "]";
 	}
 	
+	public Interest () {};
+
+	public Interest(String agePreference, String sexPreference, String movieGenre, String songGenre, String faveFood,
+			String faveHobby, PersonalInformation personalInformation) {
+		super();
+		this.agePreference = agePreference;
+		this.sexPreference = sexPreference;
+		this.movieGenre = movieGenre;
+		this.songGenre = songGenre;
+		this.faveFood = faveFood;
+		this.faveHobby = faveHobby;
+		this.personalInformation = personalInformation;
+	}
+	
+	
+	
 }

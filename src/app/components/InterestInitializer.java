@@ -5,16 +5,16 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import app.entity.ContactInformation;
+import app.entity.Interest;
 import app.entity.PersonalInformation;
-import app.repository.ContactInformationRepository;
+import app.repository.InterestRepository;
 import app.repository.PersonalInformationRepository;
 
 @Component
-public class ContactInformationInitializer 
+public class InterestInitializer 
 {
 	@Autowired
-	private ContactInformationRepository contactInformationRepo;
+	private InterestRepository interestRepo;
 	
 	@Autowired
 	private PersonalInformationRepository personalInformationRepo;
@@ -30,10 +30,10 @@ public class ContactInformationInitializer
 		PersonalInformation user1 = personalInformationRepo.findByPersonalInfoID(u1);
 		PersonalInformation user2 = personalInformationRepo.findByPersonalInfoID(u2);
 		
-		if (contactInformationRepo.count()==0)
+		if (interestRepo.count()==0)
 		{
-			contactInformationRepo.save(new ContactInformation ("09171110000", "johndoe@mail.com", "facebook link - john doe", "image link - john doe", user1));
-			contactInformationRepo.save(new ContactInformation ("09171112222", "janedoe@mail.com", "facebook link - jane doe", "image link - jane doe", user2));
+			interestRepo.save(new Interest ("20-25", "F", "Action", "Pop", "Pasta", "Travelling", user1));
+			interestRepo.save(new Interest ("25-30", "M", "Action", "Country", "Pizza", "Fitness", user2));
 		}
 	}
 }

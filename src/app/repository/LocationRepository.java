@@ -8,4 +8,5 @@ import app.entity.Location;
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Long> {
 
+	public Location findByLocationID (Long locationID);
 }

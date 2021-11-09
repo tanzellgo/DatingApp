@@ -5,35 +5,40 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import app.entity.ContactInformation;
+import app.entity.Activity;
+import app.entity.Location;
 import app.entity.PersonalInformation;
-import app.repository.ContactInformationRepository;
+import app.repository.ActivityRepository;
+import app.repository.LocationRepository;
 import app.repository.PersonalInformationRepository;
 
 @Component
-public class ContactInformationInitializer 
+public class ActivityInitializer 
 {
 	@Autowired
-	private ContactInformationRepository contactInformationRepo;
+	private ActivityRepository activityRepo;
 	
 	@Autowired
 	private PersonalInformationRepository personalInformationRepo;
+	
+	@Autowired
+	private LocationRepository locationRepo;
 	
 	@PostConstruct
 	public void initialize()
 	{
 		
-		Long u1 = new Long(1);
-		Long u2 = new Long(2);
-		
+		Long u1 = new Long(5);
+		Long u2 = new Long(6);
+		Long u3 = new Long(3);
 				
 		PersonalInformation user1 = personalInformationRepo.findByPersonalInfoID(u1);
 		PersonalInformation user2 = personalInformationRepo.findByPersonalInfoID(u2);
+		Location loc1 = locationRepo.findByLocationID(u3);
 		
-		if (contactInformationRepo.count()==0)
+		if (activityRepo.count()==0)
 		{
-			contactInformationRepo.save(new ContactInformation ("09171110000", "johndoe@mail.com", "facebook link - john doe", "image link - john doe", user1));
-			contactInformationRepo.save(new ContactInformation ("09171112222", "janedoe@mail.com", "facebook link - jane doe", "image link - jane doe", user2));
+			activityRepo.save(new Activity ("Movie Date with John", "11/13/2021", "5:00PM", null, user1, user2, loc1));
 		}
 	}
 }

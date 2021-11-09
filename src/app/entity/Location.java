@@ -13,53 +13,65 @@ public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
-	private Long LocationID;
+	private Long locationID;
 	
 	@Column
 	@NotNull(message = "Please recheck all the fields inputted.")
-	private String LocationName;
+	private String locationName;
 	
 	@Column
 	@NotNull(message = "Please recheck all the fields inputted.")
-	private String Address;
+	private String address;
+
+	
+	public Long getLocationID() {
+		return locationID;
+	}
+
+
+	public void setLocationID(Long locationID) {
+		this.locationID = locationID;
+	}
+
+
+	public String getLocationName() {
+		return locationName;
+	}
+
+
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Location [LocationID=" + LocationID + ", LocationName=" + LocationName + ", Address=" + Address + "]";
+		return "Location [locationID=" + locationID + ", locationName=" + locationName + ", address=" + address + "]";
 	}
 
-	public Long getLocationID() {
-		return LocationID;
-	}
 
-	public void setLocationID(Long locationID) {
-		LocationID = locationID;
-	}
+	public Location () {}
 
-	public String getLocationName() {
-		return LocationName;
-	}
 
-	public void setLocationName(String locationName) {
-		LocationName = locationName;
-	}
-
-	public String getAddress() {
-		return Address;
-	}
-
-	public void setAddress(String address) {
-		Address = address;
-	}
-
-	public Location () {};
-	
 	public Location(@NotNull(message = "Please recheck all the fields inputted.") String locationName,
 			@NotNull(message = "Please recheck all the fields inputted.") String address) {
 		super();
-		LocationName = locationName;
-		Address = address;
-	}
+		this.locationName = locationName;
+		this.address = address;
+	};
+	
+
+	
 
 
 	
