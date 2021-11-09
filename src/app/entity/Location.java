@@ -52,5 +52,6 @@ public class Location {
 		Address = address;
 	}
 	
+
 	
 }

@@ -77,6 +77,19 @@ public class PersonalInformation {
 				+ ", age=" + age + ", pronouns=" + pronouns + ", sex=" + sex + "]";
 	}
 
+	public PersonalInformation () {};
+	
+	public PersonalInformation(@NotNull(message = "Name is missing") String personalInfoName,
+			@NotNull(message = "Age is missing") Integer age,
+			@NotNull(message = "Pronouns are missing") String pronouns,
+			@NotNull(message = "Sex is missing") String sex) {
+		super();
+		this.personalInfoName = personalInfoName;
+		this.age = age;
+		this.pronouns = pronouns;
+		this.sex = sex;
+	}
+
 	
 	
 }

@@ -34,5 +34,61 @@ public class ContactInformation {
     private String image;
 	
 	@OneToOne  
-	private PersonalInformation personalInformation;  
+	private PersonalInformation personalInformation;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFacebookLink() {
+		return facebookLink;
+	}
+
+	public void setFacebookLink(String facebookLink) {
+		this.facebookLink = facebookLink;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+
+	@Override
+	public String toString() {
+		return "ContactInformation [id=" + id + ", phoneNumber=" + phoneNumber + ", email=" + email + ", facebookLink="
+				+ facebookLink + ", image=" + image + ", personalInformation=" + personalInformation + "]";
+	}  
+	
+	
 }

@@ -114,7 +114,26 @@ public class Activity {
 		return "Activity [activityID=" + activityID + ", activityName=" + activityName + ", date=" + date + ", time="
 				+ time + ", acceptance=" + acceptance + ", inviterPersonalInformation=" + inviterPersonalInformation
 				+ ", inviteePersonalInformation=" + inviteePersonalInformation + ", location=" + location + "]";
+	}
+
+	public Activity () {};
+	
+	public Activity(@NotNull(message = "Activity name is missing") String activityName,
+			@NotNull(message = "Activity date is missing") String date,
+			@NotNull(message = "Activity time is missing") String time, Boolean acceptance,
+			PersonalInformation inviterPersonalInformation,
+			@NotNull(message = "Invitee is missing") PersonalInformation inviteePersonalInformation,
+			@NotNull(message = "Activity location is missing") Location location) {
+		super();
+		this.activityName = activityName;
+		this.date = date;
+		this.time = time;
+		this.acceptance = acceptance;
+		this.inviterPersonalInformation = inviterPersonalInformation;
+		this.inviteePersonalInformation = inviteePersonalInformation;
+		this.location = location;
 	} 
+	
 	
 	
 }
