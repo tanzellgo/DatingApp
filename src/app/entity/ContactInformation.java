@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class ContactInformation {
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
     private long id;
 	

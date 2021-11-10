@@ -3,7 +3,6 @@ package app.components;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.entity.Activity;
 import app.entity.PersonalInformation;
 import app.repository.PersonalInformationRepository;
 

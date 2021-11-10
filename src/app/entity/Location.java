@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class Location {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Long locationID;
 	

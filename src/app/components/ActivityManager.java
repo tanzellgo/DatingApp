@@ -26,6 +26,7 @@ public class ActivityManager {
 		newActivity.setAcceptance(param.getAcceptance());;
 		newActivity.setInviterPersonalInformation(param.getInviterPersonalInformation());
 		newActivity.setInviteePersonalInformation(param.getInviteePersonalInformation());
+		newActivity.setLocation(param.getLocation());
 	
 		Activity activity = activityRepo.save(newActivity);
 		

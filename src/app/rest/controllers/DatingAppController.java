@@ -2,6 +2,7 @@ package app.rest.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -34,19 +35,33 @@ public class DatingAppController {
 
 	@Autowired
 	ActivityManager activityManager;
+	
+	@Autowired
 	LocationManager locationManager;
+	
+	@Autowired
 	PersonalInformationManager personalInfoManager;
+	
+	@Autowired
 	ContactInformationManager contactInfoManager;
+	
+	@Autowired
 	InterestManager interestManager;
+	
+	@Autowired
 	private ActivityRepository activityRepo;
+	
+	@Autowired
 	private InterestRepository interestRepo;
+	
+	@Autowired
 	private PersonalInformationRepository personalInfoRepo;
 	
 	@POST
 	@Path("/activity/create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Activity createActivity(Activity activity) {
+	public Activity createActivity(@Valid Activity activity) {
 		return activityManager.saveActivity(activity);
 	}
 	
@@ -54,7 +69,7 @@ public class DatingAppController {
 	@Path("/activity/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Activity editActivity(Activity activity) {
+	public Activity editActivity(@Valid Activity activity) {
 		return activityManager.editActivity(activity);
 	}
 	
@@ -62,17 +77,9 @@ public class DatingAppController {
 	@Path("/location/create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Location createLocation(Location location)
+	public Location createLocation(@Valid Location location)
 	{
 		return locationManager.saveLocation(location);
-		//	ERROR MESSAGE - HAVEN'T TESTED YET --> will change the method into a string if this will be used
-//		Location loc = locationManager.saveLocation(location);
-//		
-//		if (loc != null) {
-//			return "Saved new location "; //+ loc.getId()
-//		} else {
-//			return "Location cannot be created.";
-//		}
 	}
 
 //profile/personalinfo CRUD
@@ -80,7 +87,7 @@ public class DatingAppController {
 	@Path("/profile/create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public PersonalInformation createProfile(PersonalInformation personalInfo)
+	public PersonalInformation createProfile(@Valid PersonalInformation personalInfo)
 	{
 		return personalInfoManager.savePersonalInfo(personalInfo);
 	}
@@ -97,7 +104,7 @@ public class DatingAppController {
 	@GET
 	@Path("/profile/delete")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String deleteProfile(@QueryParam("personalInfoID") Long x)
+	public String deleteProfile(@Valid @QueryParam("personalInfoID") Long x)
 	{
 		return String.valueOf(personalInfoManager.deletePersonalInfo(x));
 	}
@@ -106,7 +113,7 @@ public class DatingAppController {
 	@Path("/contactinformation/create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public ContactInformation createContactInfo(ContactInformation contactInfo)
+	public ContactInformation createContactInfo(@Valid ContactInformation contactInfo)
 	{
 		return contactInfoManager.saveContactInfo(contactInfo);
 	}
@@ -115,7 +122,7 @@ public class DatingAppController {
 	@Path("/contactinformation/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public ContactInformation editContactInfo(ContactInformation contactInfo)
+	public ContactInformation editContactInfo(@Valid ContactInformation contactInfo)
 	{
 		return contactInfoManager.saveContactInfo(contactInfo);
 	}
@@ -124,7 +131,7 @@ public class DatingAppController {
 	@Path("/interest/create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Interest createInterest(Interest interest)
+	public Interest createInterest(@Valid Interest interest)
 	{
 		return interestManager.saveInterest(interest);
 	}
@@ -133,7 +140,7 @@ public class DatingAppController {
 	@Path("/interest/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Interest editInterest(Interest interest)
+	public Interest editInterest(@Valid Interest interest)
 	{
 		return interestManager.saveInterest(interest);
 	}
@@ -145,42 +152,42 @@ public class DatingAppController {
 	@GET
 	@Path("/findmatch/age")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListAge(@QueryParam("agePreference") String agePreference){
+	public List<Interest> getListAge(@Valid @QueryParam("agePreference") String agePreference){
 		return interestRepo.findAllByAgePreference(agePreference);
 	}
 	
 	@GET
 	@Path("/findmatch/sex")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListSex(@QueryParam("sexPreference") String sexPreference){
+	public List<Interest> getListSex(@Valid @QueryParam("sexPreference") String sexPreference){
 		return interestRepo.findAllBySexPreference(sexPreference);
 	}
 	
 	@GET
 	@Path("/findmatch/movie")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListMovie(@QueryParam("movieGenre") String movieGenre){
+	public List<Interest> getListMovie(@Valid @QueryParam("movieGenre") String movieGenre){
 		return interestRepo.findAllByMovieGenre(movieGenre);
 	}
 	
 	@GET
 	@Path("/findmatch/song")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListSong(@QueryParam("songGenre") String songGenre){
+	public List<Interest> getListSong(@Valid @QueryParam("songGenre") String songGenre){
 		return interestRepo.findAllBySongGenre(songGenre);
 	}
 	
 	@GET
 	@Path("/findmatch/food")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListFood(@QueryParam("faveFood") String faveFood){
+	public List<Interest> getListFood(@Valid @QueryParam("faveFood") String faveFood){
 		return interestRepo.findAllByFaveFood(faveFood);
 	}
 	
 	@GET
 	@Path("/findmatch/hobby")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Interest> getListHobby(@QueryParam("faveHobby") String faveHobby){
+	public List<Interest> getListHobby(@Valid @QueryParam("faveHobby") String faveHobby){
 		return interestRepo.findAllByFaveHobby(faveHobby);
 	}
 	
@@ -188,29 +195,29 @@ public class DatingAppController {
 	@GET
 	@Path("/viewmatch")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<PersonalInformation> getList(@QueryParam("personalInformation") Long personalInfoID){
-		return personalInfoRepo.findAllByPersonalInfoID(personalInfoID);
+	public PersonalInformation getList(@Valid @QueryParam("personalInformation") Long personalInfoID){
+		return personalInfoRepo.findByPersonalInfoID(personalInfoID);
 		// get personal information
 		// then pass to search in personal info repo
 	}
 	
 //	VIEW SENT INVITES
-	@GET
+	@POST
 	@Path("/viewsent")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Activity> getSent(@QueryParam("personalInformation") Long personalInfoID){
-		return activityRepo.findAllByInviterPersonalInformation(personalInfoID);
+	public List<Activity> getSent(@Valid PersonalInformation personalInformation){
+		return activityRepo.findAllByInviterPersonalInformation(personalInformation);
 	}
 	
 //	VIEW RECEIVED INVITES
 	
-	@GET
+	@POST
 	@Path("/viewreceived")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Activity> getReiceved(@QueryParam("personalInformation") Long personalInfoID){
-		return activityRepo.findAllByInviteePersonalInformation(personalInfoID);
+	public List<Activity> getRecieved(@Valid PersonalInformation personalInformation){
+		return activityRepo.findAllByInviteePersonalInformation(personalInformation);
 	}
 	
 }

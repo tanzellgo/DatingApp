@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Interest {
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private long interestID;
 	
