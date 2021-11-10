@@ -46,6 +46,6 @@ public class ActivityManager {
 		
 		Activity activity = activityRepo.save(oldActivity);
 		
-       return param;
+       return activity;
     }
 }
