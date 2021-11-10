@@ -14,8 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import app.components.ActivityManager;
+import app.components.ContactInformationManager;
+import app.components.InterestManager;
 import app.components.LocationManager;
+import app.components.PersonalInformationManager;
 import app.entity.Activity;
+import app.entity.ContactInformation;
 import app.entity.Interest;
 import app.entity.Location;
 import app.entity.PersonalInformation;
@@ -31,6 +35,9 @@ public class DatingAppController {
 	@Autowired
 	ActivityManager activityManager;
 	LocationManager locationManager;
+	PersonalInformationManager personalInfoManager;
+	ContactInformationManager contactInfoManager;
+	InterestManager interestManager;
 	private ActivityRepository activityRepo;
 	private InterestRepository interestRepo;
 	private PersonalInformationRepository personalInfoRepo;
@@ -68,6 +75,70 @@ public class DatingAppController {
 //		}
 	}
 
+//profile/personalinfo CRUD
+	@POST
+	@Path("/profile/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public PersonalInformation createProfile(PersonalInformation personalInfo)
+	{
+		return personalInfoManager.savePersonalInfo(personalInfo);
+	}
+	
+	@POST
+	@Path("/profile/edit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public PersonalInformation editProfile(PersonalInformation personalInfo)
+	{
+		return personalInfoManager.savePersonalInfo(personalInfo);
+	}
+
+	@GET
+	@Path("/profile/delete")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String deleteProfile(@QueryParam("personalInfoID") Long x)
+	{
+		return String.valueOf(personalInfoManager.deletePersonalInfo(x));
+	}
+	
+	@POST
+	@Path("/contactinformation/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ContactInformation createContactInfo(ContactInformation contactInfo)
+	{
+		return contactInfoManager.saveContactInfo(contactInfo);
+	}
+	
+	@POST
+	@Path("/contactinformation/edit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public ContactInformation editContactInfo(ContactInformation contactInfo)
+	{
+		return contactInfoManager.saveContactInfo(contactInfo);
+	}
+	
+	@POST
+	@Path("/interest/create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Interest createInterest(Interest interest)
+	{
+		return interestManager.saveInterest(interest);
+	}
+	
+	@POST
+	@Path("/interest/edit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Interest editInterest(Interest interest)
+	{
+		return interestManager.saveInterest(interest);
+	}
+	
+	
 //	FIND MATCH (to fix)
 //	need to return a list that matches all the findAllBy interest methods
 	
