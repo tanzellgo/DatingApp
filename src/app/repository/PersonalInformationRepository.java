@@ -10,6 +10,6 @@ import app.entity.PersonalInformation;
 @Repository
 public interface PersonalInformationRepository extends JpaRepository<PersonalInformation, Long> {
 
-	public List<PersonalInformation> findAllByPersonalInfoID(String personalInfoID);
+	public List<PersonalInformation> findAllByPersonalInfoID(Long personalInfoID);
 	public PersonalInformation findByPersonalInfoID (Long personalInfoID);
 }

@@ -6,14 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import app.entity.Activity;
-import app.entity.PersonalInformation;
 
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
-	public Activity findActivityById(Long ActivityId);
-	public List<Activity> findAllByInviterPersonalInformation(PersonalInformation inviterPersonalInformation);
-	public List<Activity> findAllByInviteePersonalInformation(PersonalInformation inviteePersonalInformation);
+//	public Activity findActivityById(Long ActivityId);
+	public List<Activity> findAllByInviterPersonalInformation(Long personalInfoID);
+	public List<Activity> findAllByInviteePersonalInformation(Long personalInfoID);
 	
 
 
