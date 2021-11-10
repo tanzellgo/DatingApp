@@ -35,16 +35,16 @@ public class ActivityManager {
 	// general update for any activity
 	public Activity editActivity(Activity param) {
 		
-//		Activity oldActivity = activityRepo.findActivityById(param.getActivityID());
-//		
-//		oldActivity.setActivityName(param.getActivityName());
-//		oldActivity.setDate(param.getDate());
-//		oldActivity.setTime(param.getTime());
-//		oldActivity.setAcceptance(param.getAcceptance());;
-//		oldActivity.setInviterPersonalInformation(param.getInviterPersonalInformation());
-//		oldActivity.setInviteePersonalInformation(param.getInviteePersonalInformation());
-//		
-//		Activity activity = activityRepo.save(oldActivity);
+		Activity oldActivity = activityRepo.findActivityByActivityID(param.getActivityID());
+		
+		oldActivity.setActivityName(param.getActivityName());
+		oldActivity.setDate(param.getDate());
+		oldActivity.setTime(param.getTime());
+		oldActivity.setAcceptance(param.getAcceptance());;
+		oldActivity.setInviterPersonalInformation(param.getInviterPersonalInformation());
+		oldActivity.setInviteePersonalInformation(param.getInviteePersonalInformation());
+		
+		Activity activity = activityRepo.save(oldActivity);
 		
        return param;
     }

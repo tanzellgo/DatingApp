@@ -10,7 +10,7 @@ import app.entity.Activity;
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
-//	public Activity findActivityById(Long ActivityId);
+	public Activity findActivityByActivityID(Long ActivityId);
 	public List<Activity> findAllByInviterPersonalInformation(Long personalInfoID);
 	public List<Activity> findAllByInviteePersonalInformation(Long personalInfoID);
 	
