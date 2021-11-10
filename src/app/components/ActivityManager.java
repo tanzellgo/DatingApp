@@ -20,20 +20,31 @@ public class ActivityManager {
 		
 		Activity newActivity = new Activity();
 		
-//		Indicated setters
+		newActivity.setActivityName(param.getActivityName());
+		newActivity.setDate(param.getDate());
+		newActivity.setTime(param.getTime());
+		newActivity.setAcceptance(param.getAcceptance());;
+		newActivity.setInviterPersonalInformation(param.getInviterPersonalInformation());
+		newActivity.setInviteePersonalInformation(param.getInviteePersonalInformation());
 	
 		Activity activity = activityRepo.save(newActivity);
 		
        return activity;
     }
 	
+	// general update for any activity
 	public Activity editActivity(Activity param) {
 		
-		Activity newActivity = new Activity();
+		Activity oldActivity = activityRepo.findActivityById(param.getActivityID());
 		
-//		Indicated setters
-	
-		Activity activity = activityRepo.save(newActivity);
+		oldActivity.setActivityName(param.getActivityName());
+		oldActivity.setDate(param.getDate());
+		oldActivity.setTime(param.getTime());
+		oldActivity.setAcceptance(param.getAcceptance());;
+		oldActivity.setInviterPersonalInformation(param.getInviterPersonalInformation());
+		oldActivity.setInviteePersonalInformation(param.getInviteePersonalInformation());
+		
+		Activity activity = activityRepo.save(oldActivity);
 		
        return activity;
     }
