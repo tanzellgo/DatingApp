@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="interest")
@@ -17,25 +18,32 @@ public class Interest {
 	@Column
 	private long interestID;
 	
+	@NotNull(message = "Age preference is missing")
 	@Column
 	private String agePreference;
 //	parang what we can do here is have have user input XX-YY where XX is starting range and YY is ending range, then splice through the - to get the values.
 	
+	@NotNull(message = "Sex preference is missing")
 	@Column
 	private String sexPreference;
 	
+	@NotNull(message = "Movie preference is missing")
 	@Column
 	private String movieGenre;
 	
+	@NotNull(message = "Song preference is missing")
 	@Column
 	private String songGenre;
 	
+	@NotNull(message = "Food preference is missing")
 	@Column
 	private String faveFood;
 	
+	@NotNull(message = "Hobby preference is missing")
 	@Column
 	private String faveHobby;
 	
+	@NotNull(message = "Personal Information is missing")
 	@OneToOne  
 	private PersonalInformation personalInformation;
 
