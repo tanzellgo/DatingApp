@@ -119,6 +119,15 @@ public class DatingAppController {
 	}
 	
 	@POST
+	@Path("/contactinformation/create/pic")
+	@Consumes(MediaType.MULTIPART_FORM_DATA)
+	public String upload(@FormDataParam("file") InputStream uploadedInputStream,
+            			 @FormDataParam("file") FormDataContentDisposition fileDetails)
+	{
+		return contactInfoManager.saveContactInfoPic(uploadedInputStream, fileDetails.getFileName());
+	}
+	
+	@POST
 	@Path("/contactinformation/edit")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
