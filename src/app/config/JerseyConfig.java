@@ -9,10 +9,12 @@ public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         
     	// REQUIRED:
-		// need to explicitly tell Jersey where the REST classes are found
-		packages("app.rest");  
+	// need to explicitly tell Jersey where the REST classes are found
+	packages("app.rest");  
 				    
-
+	// OPTIONAL:
+        // MULTIPART SUPPORT
+        register(MultiPartFeature.class);
 
     }
 }
