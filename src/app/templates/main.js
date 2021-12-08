@@ -321,3 +321,275 @@ function editInterest(){
 	// Displaying results to console
 	.then(json => console.log(json));
 }
+
+
+function createActivity(){
+	var activityName = document.getElementById("activityName").value;
+	var date = document.getElementById("date").value;
+	var time = document.getElementById("time").value;
+	var acceptance = document.getElementById("acceptance").value;
+	var inviteePersonalInformation = document.getElementById("inviteePersonalInformation").value;
+	var inviterPersonalInformation = document.getElementById("inviterPersonalInformation").value;
+	var locationName = document.getElementById("locationName").value;
+	var address = document.getElementById("address").value;
+	
+	console.log(activityName, date, time, acceptance, inviteePersonalInformation, inviterPersonalInformation, locationName, address);
+	
+	// POST request using fetch()
+	fetch("http://localhost:9999/activity/create", {
+	    //mode: "no-cors", 
+	    // Adding method type
+	    method: "POST",
+	     
+	    // Adding body or contents to send
+	    body: JSON.stringify({
+			activityName : activityName,
+			date : date,
+			time : time,
+			acceptance : acceptance,
+			inviteePersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			inviterPersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			location: {
+				locationID : locationID,
+				address : address,
+				locationName : locationName
+			}
+	    }),
+	     
+	    // Adding headers to the request
+	    headers: {
+	        "Content-type": "application/json; charset=UTF-8",
+	    }
+	})
+	 
+	// Converting to JSON
+	.then(response => response.json())
+	 
+	// Displaying results to console
+	.then(json => console.log(json));
+}
+
+
+function editActivity(){
+	var activityName = document.getElementById("activityName").value;
+	var date = document.getElementById("date").value;
+	var time = document.getElementById("time").value;
+	var acceptance = document.getElementById("acceptance").value;
+	var inviteePersonalInformation = document.getElementById("inviteePersonalInformation").value;
+	var inviterPersonalInformation = document.getElementById("inviterPersonalInformation").value;
+	var locationName = document.getElementById("locationName").value;
+	var address = document.getElementById("address").value;
+	
+	console.log(activityName, date, time, acceptance, inviteePersonalInformation, inviterPersonalInformation, locationName, address);
+	
+	// POST request using fetch()
+	fetch("http://localhost:9999/activity/edit", {
+	    //mode: "no-cors", 
+	    // Adding method type
+	    method: "POST",
+	     
+	    // Adding body or contents to send
+	    body: JSON.stringify({
+			activityName : activityName,
+			date : date,
+			time : time,
+			acceptance : acceptance,
+			inviteePersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			inviterPersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			location: {
+				locationID : locationID,
+				address : address,
+				locationName : locationName
+			}
+	    }),
+	     
+	    // Adding headers to the request
+	    headers: {
+	        "Content-type": "application/json; charset=UTF-8",
+	    }
+	})
+	 
+	// Converting to JSON
+	.then(response => response.json())
+	 
+	// Displaying results to console
+	.then(json => console.log(json));
+}
+
+
+function viewMatchedProfiles(){
+	var personalInfoName = document.getElementById("personalInfoName").value;
+	var age = document.getElementById("age").value;
+	var pronouns = document.getElementById("pronouns").value;
+	var sex = document.getElementById("sex").value;
+	
+	console.log(personalInfoName, age, pronouns, sex);
+	
+	// POST request using fetch()
+	fetch("http://localhost:9999/date/viewmatch", {
+	    //mode: "no-cors", 
+	    // Adding method type
+	    method: "POST",
+	     
+	    // Adding body or contents to send
+	    body: JSON.stringify({
+	        personalInfoName: personalInfoName,
+	        age: age,
+			pronouns: pronouns,
+			sex: sex
+	    }),
+	     
+	    // Adding headers to the request
+	    headers: {
+	        "Content-type": "application/json; charset=UTF-8",
+	    }
+	})
+	 
+	// Converting to JSON
+	.then(response => response.json())
+	 
+	// Displaying results to console
+	.then(json => console.log(json));
+}
+
+
+function viewSentInvites(){
+	var activityName = document.getElementById("activityName").value;
+	var date = document.getElementById("date").value;
+	var time = document.getElementById("time").value;
+	var acceptance = document.getElementById("acceptance").value;
+	var inviteePersonalInformation = document.getElementById("inviteePersonalInformation").value;
+	var inviterPersonalInformation = document.getElementById("inviterPersonalInformation").value;
+	var locationName = document.getElementById("locationName").value;
+	var address = document.getElementById("address").value;
+	
+	console.log(activityName, date, time, acceptance, inviteePersonalInformation, inviterPersonalInformation, locationName, address);
+	
+	// POST request using fetch()
+	fetch("http://localhost:9999/date/viewsent", {
+	    //mode: "no-cors", 
+	    // Adding method type
+	    method: "POST",
+	     
+	    // Adding body or contents to send
+	    body: JSON.stringify({
+			activityName : activityName,
+			date : date,
+			time : time,
+			acceptance : acceptance,
+			inviteePersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			inviterPersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			location: {
+				locationID : locationID,
+				address : address,
+				locationName : locationName
+			}
+	    }),
+	     
+	    // Adding headers to the request
+	    headers: {
+	        "Content-type": "application/json; charset=UTF-8",
+	    }
+	})
+	 
+	// Converting to JSON
+	.then(response => response.json())
+	 
+	// Displaying results to console
+	.then(json => console.log(json));
+}
+
+
+function viewReceivedInvites(){
+	var activityName = document.getElementById("activityName").value;
+	var date = document.getElementById("date").value;
+	var time = document.getElementById("time").value;
+	var acceptance = document.getElementById("acceptance").value;
+	var inviteePersonalInformation = document.getElementById("inviteePersonalInformation").value;
+	var inviterPersonalInformation = document.getElementById("inviterPersonalInformation").value;
+	var locationName = document.getElementById("locationName").value;
+	var address = document.getElementById("address").value;
+	
+	console.log(activityName, date, time, acceptance, inviteePersonalInformation, inviterPersonalInformation, locationName, address);
+	
+	// POST request using fetch()
+	fetch("http://localhost:9999/date/viewreceived", {
+	    //mode: "no-cors", 
+	    // Adding method type
+	    method: "POST",
+	     
+	    // Adding body or contents to send
+	    body: JSON.stringify({
+			activityName : activityName,
+			date : date,
+			time : time,
+			acceptance : acceptance,
+			inviteePersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			inviterPersonalInformation: {
+				personalInfoID: personalInfoID,
+				personalInfoName: personalInfoName,
+		        age: age,
+				pronouns: pronouns,
+				sex: sex
+			},
+			location: {
+				locationID : locationID,
+				address : address,
+				locationName : locationName
+			}
+	    }),
+	     
+	    // Adding headers to the request
+	    headers: {
+	        "Content-type": "application/json; charset=UTF-8",
+	    }
+	})
+	 
+	// Converting to JSON
+	.then(response => response.json())
+	 
+	// Displaying results to console
+	.then(json => console.log(json));
+}
